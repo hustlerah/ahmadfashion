@@ -61,7 +61,8 @@
 }
 .ProductDetails{
     padding-top: 80px;
-   
+    min-height: 80vh;
+    padding-bottom: 20px;
     
 }
 .ProductDtop{
