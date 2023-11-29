@@ -1,0 +1,119 @@
+.Shop{
+    padding-top: 80px;
+    padding-bottom: 40px;
+  
+}
+
+/* Add these styles to your CSS */
+.onSale {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    background-color: #111; /* Choose your desired background color */
+    color: #ffffff; /* Choose your desired text color */
+    padding: 0px 7px;
+    height: 25px;
+    border-radius: 5px;
+    /* font-size: 12px; */
+    font-weight: bold;
+  }
+  .Shop h2{
+    font-weight: bold !important;
+    color: #111;
+    font-size: 40px;
+  }
+  
+.mycard{
+    position: relative;
+}
+.mbtn{
+    border: 0;
+    background: transparent;
+    color: #e53637;
+}
+.Shop h6{
+    font-size: 18px;
+}
+.Shop span{
+    font-weight: bold;
+    color: #111;
+    font-size: 20px;
+}
+.Shop img{
+    cursor: pointer;
+}
+@media (max-width:575px) {
+    .mycard{
+     
+    }
+    .onSale {
+        /* display: none; */
+        top: 10px;
+        left: 5px;
+        background-color: #111; /* Choose your desired background color */
+        color: #ffffff; /* Choose your desired text color */
+        padding: 0px 7px;
+        height: 25px;
+        border-radius: 5px;
+        /* font-size: 12px; */
+        font-weight: bold;
+      }
+}
+.ProductDetails{
+    padding-top: 80px;
+   
+    
+}
+.ProductDtop{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    background-color: #eee;
+}
+.ProductDetails .row{
+    min-height: 50vh;
+}
+
+.ProductDetails .btn2{
+    border: 1px solid #111;
+    height: 150px;
+    width: 150px;
+    margin-top: 10px;
+}
+.ProductDetails .col-lg-4{
+    display: flex !important;
+    flex-direction: column;
+}
+.ProductDetails .col-lg-8{
+    margin-top: 40px !important;
+}
+.ProductDetails h2{
+    font-weight: bold;
+}
+.ProductDetails h4{
+    margin-top: 20px;
+    font-weight: bold;
+}
+.ProductDetails .df{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.ProductDetails .btnf{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.ProductDetails .btn3{
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 14px 30px;
+    color: #ffffff;
+    background: #000000;
+    letter-spacing: 4px;
+}

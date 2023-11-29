@@ -1,0 +1,14 @@
+.About{
+    padding-top: 80px;
+}
+.About h5{
+    font-weight: bold;
+}
+@media(max-width:576px){
+    .dfg{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+}

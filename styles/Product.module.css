@@ -1,0 +1,28 @@
+/* ProductDetail.module.css */
+
+.imageButtonsContainer {
+    display: flex;
+    /* justify-content: space-between; */
+  }
+  
+  .imageButton {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .thumbnail {
+    width: 50px; /* Adjust the size of the thumbnails */
+    height: 50px;
+    object-fit: cover;
+  }
+  
+  .active {
+    border: 2px solid blue; /* Add a border or any other styling for the active button */
+  }
+  
+  .fullImagePreview {
+    margin-top: 20px;
+  }
+  
