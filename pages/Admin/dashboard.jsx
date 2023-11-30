@@ -7,6 +7,8 @@ import {
   updateDoc,
   deleteDoc,
   getDocs,
+  getDoc,
+  setDoc,
 } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { useRouter } from 'next/router';
@@ -23,6 +25,9 @@ const Dashboard = () => {
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [orders, setOrders] = useState([]);
 
+  const [couponId, setCouponId] = useState('');
+  const [discountPercentage, setdiscountPercentage] = useState('');
+
   const fetchDataForProducts = async () => {
     const q = collection(db, 'products');
     const querySnap = await getDocs(q);
@@ -38,7 +43,7 @@ const Dashboard = () => {
   useEffect(() => {
     fetchDataForProducts();
   }, []);
-
+ 
   const fetchRemainingOrders = async () => {
     try {
       const q = collection(db, 'remainingOrders'); // Replace 'remainingOrders' with the actual collection name
@@ -58,6 +63,26 @@ const Dashboard = () => {
     fetchRemainingOrders();
   }, []);
 
+  const handleAddCoupon = async () => {
+    if (couponId && discountPercentage) {
+      try {
+        const couponRef = doc(db, 'coupons', couponId);
+        const couponDoc = await getDoc(couponRef);
+
+        if (!couponDoc.exists()) {
+          // Coupon does not exist, add it
+          await setDoc(couponRef, { discountPercentage: Number(discountPercentage) });
+          console.log('Coupon added successfully');
+        } else {
+          console.error('Coupon with the same ID already exists');
+        }
+      } catch (error) {
+        console.error('Error adding coupon:', error);
+      }
+    } else {
+      console.error('Please enter both coupon ID and discounted percentage');
+    }
+  };
   const [productImages, setProductImages] = useState([]);
 
   // ... (existing code)
@@ -264,6 +289,18 @@ const Dashboard = () => {
             ))}
           </ul>
         )}
+          {/* Form for adding a coupon */}
+      <div className="mt-4">
+        <h2>Add Coupon</h2>
+        <label htmlFor="couponId">Coupon ID:</label>
+        <input type="text" id="couponId" className="form-control" value={couponId} onChange={(e) => setCouponId(e.target.value)} />
+
+        <label htmlFor="discountPercentage" className="mt-2">Discounted Percentage:</label>
+        <input type="number" id="discountPercentage" className="form-control" value={discountPercentage} onChange={(e) => setdiscountPercentage(e.target.value)} />
+
+        <button onClick={handleAddCoupon} className="btn btn-primary mt-3">Add Coupon</button>
+      </div>
+
       </div>
     </div>
   );

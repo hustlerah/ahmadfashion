@@ -41,8 +41,8 @@ function Contact() {
                                     <input type="text" placeholder="Email" name='email'/>
                                 </div>
                                 <div className="col-lg-12">
-                                    <textarea placeholder="Message"></textarea>
-                                    <button type="submit" className="site-btn" name='message'>Send Message</button>
+                                    <textarea placeholder="Message" name='message'></textarea>
+                                    <button type="submit" className="site-btn" >Send Message</button>
                                 </div>
                             </div>
                         </form>

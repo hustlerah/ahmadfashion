@@ -24,10 +24,14 @@ function Shop() {
         productData.push({ id: doc.id, ...doc.data() });
       });
 
-      // Update to show only the first 8 products
-      const firstEightProducts = productData.slice(0, 8);
+      if (router.pathname === '/shop') {
+        dispatch(setProducts(productData)); // Set all products
+      } else {
+        // Update to show only the first 8 products
+        const firstEightProducts = productData.slice(0, 8);
+        dispatch(setProducts(firstEightProducts));
+      }
 
-      dispatch(setProducts(firstEightProducts));
       setLoading(false);
     } catch (error) {
       console.error('Error fetching products', error);
@@ -39,6 +43,7 @@ function Shop() {
     fetchProducts();
   }, []);
 
+
   const handleAddToCart = (productId) => {
     dispatch(addToCart(productId));
     const selectedProduct = products.find((product) => product.id === productId);
@@ -48,7 +53,22 @@ function Shop() {
     console.log('Product Price:', selectedProduct.productPrice);
     notify();
   };
+
   const notify = () => toast.success('Added To Cart');
+
+  const loadingAllProductsComponent = (
+    <div className="container" style={{ minHeight: '70vh', textAlign: 'center' }}>
+      Loading all products...
+    </div>
+  );
+
+  const loadingEightProductsComponent = (
+    <div className="container" style={{ paddingBottom:'10px',textAlign: 'center' }}>
+      Loading products...
+    </div>
+  );
+
+  const displayedProducts = router.pathname === '/shop' ? products : products.slice(0, 8);
 
   return (
     <>
@@ -58,12 +78,10 @@ function Shop() {
           <ToastContainer />
           {router.pathname === '/shop' ? (
             loading ? (
-              <div className="container" style={{ minHeight: '70vh' }}>
-                Loading...
-              </div>
+              loadingAllProductsComponent
             ) : (
               <div className="row mx-auto mt-5  ms-auto">
-                {products.map((product) => (
+                {displayedProducts.map((product) => (
                   <div className="col-lg-3 col-md-6 col-sm-6 col-12" key={product.id}>
                     <div className="mycard mt-4">
                       <div
@@ -97,10 +115,10 @@ function Shop() {
             )
           ) : (
             loading ? (
-              <p>Loading...</p>
+              loadingEightProductsComponent
             ) : (
               <div className="row mx-auto mt-5  ms-auto">
-                {products.map((product) => (
+                {displayedProducts.map((product) => (
                   <div className="col-lg-3 col-md-6 col-sm-6 col-12" key={product.id}>
                     <div className="mycard mt-4">
                       <div

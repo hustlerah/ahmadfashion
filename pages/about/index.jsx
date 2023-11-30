@@ -43,7 +43,7 @@ function About() {
         <div className="container">
             <h2 className="text-center" style={{fontWeight:"bold"}}>About Us</h2>
             <div className="about-img mt-5">
-                <img src={'/img/about/about-us.jpg'} alt="About Us" />
+                <img src={'/img/about/about-us.jpg'} alt="About Us" className='img-fluid'/>
             </div>
             <div className="row">
                 {

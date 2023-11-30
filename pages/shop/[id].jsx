@@ -43,7 +43,7 @@ function ProductDetails() {
    }, [loadedDirectly, router]);
  
    if (loading) {
-    return <p className='text-center' style={{paddingTop:'90px'}}>Loading...</p>; // You can customize the loader as needed
+    return <div style={{minHeight:'80vh'}}><p className='text-center' style={{paddingTop:'90px'}}>Loading...</p></div>; // You can customize the loader as needed
   }
   const handleAddToCart = () => {
     dispatch(addToCart(id));
@@ -54,8 +54,10 @@ function ProductDetails() {
   if (!product) {
     return (
       <>
-        <h1 className='text-center' style={{paddingTop:'90px'}}>Product Not Found</h1>
+       <div  style={{minHeight:'80vh'}}>
+       <h1 className='text-center' style={{paddingTop:'90px'}}>Product Not Found</h1>
         <p className='text-center'>The product you are looking for does not exist.</p>
+       </div>
         {/* You can customize the 404 page further */}
       </>
     );
