@@ -7,12 +7,12 @@ import { getStorage } from 'firebase/storage';
 
 //  web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyD5VOhb-g5XCNXY7X1o92U-9x0HXT3ovYg",
-    authDomain: "malefashion-3dd63.firebaseapp.com",
-    projectId: "malefashion-3dd63",
-    storageBucket: "malefashion-3dd63.appspot.com",
-    messagingSenderId: "1056354549614",
-    appId: "1:1056354549614:web:21f350c76b4a7f3f43cb7f"
+    apiKey: "AIzaSyAuIhdP5E3RyJMWGZt83XtSwMtP0R74KNs",
+  authDomain: "ahmad-cf9c2.firebaseapp.com",
+  projectId: "ahmad-cf9c2",
+  storageBucket: "ahmad-cf9c2.appspot.com",
+  messagingSenderId: "805042322830",
+  appId: "1:805042322830:web:f6616748c6a2381c23b8df"
   };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
