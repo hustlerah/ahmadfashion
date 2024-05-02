@@ -9,7 +9,7 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     // Perform authentication logic here
-    if (email === 'ahmadrizvi380@gmail.com' && password === 'Ahmad123@') {
+    if (email === 'hustlerahmad0@gmail.com' && password === 'Ahmad123@') {
       // Successful login
       // Redirect to the dashboard
       router.push('/Admin/dashboard');
